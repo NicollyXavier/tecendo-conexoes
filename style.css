@@ -1,134 +1,364 @@
-body {
-  font-family: Arial, sans-serif;
+* {
   margin: 0;
   padding: 0;
-  background: #fdfdfd;
-  color: #333;
+  box-sizing: border-box;
 }
 
+:root {
+  --primary: #c17854;
+  --primary-dark: #a0522d;
+  --secondary: #f5e6d3;
+  --accent: #e8b298;
+  --text: #2c2c2c;
+  --light: #fefefe;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: var(--light);
+  line-height: 1.6;
+}
+
+/* Header moderno com gradiente */
 header {
-  background: #a0522d;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
   color: white;
-  padding: 20px;
-  text-align: center;
+  padding: 30px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px var(--shadow);
 }
 
 header h1 {
-  margin: 0;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 nav {
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
 }
 
 nav a {
-  margin: 0 10px;
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, var(--secondary) 0%, #fff 100%);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text);
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+/* Sections */
 section {
-  padding: 20px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+section h2 {
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Cards de serviços modernos */
 .servicos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .card {
-  background: #fff8f0;
-  border: 1px solid #ffffff;
-  border-radius: 10px;
-  padding: 15px;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
   text-align: center;
+  box-shadow: 0 8px 30px var(--shadow);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(193, 120, 84, 0.1);
 }
 
-.card img {
-  max-width: 100%;
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(193, 120, 84, 0.2);
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
   border-radius: 50%;
-}
-
-form {
+  margin: 0 auto 20px;
   display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin: auto;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
 }
 
-form input, form textarea, form button {
-  margin: 10px 0;
-  padding: 10px;
-  font-size: 16px;
+.card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.card button {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.card button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(193, 120, 84, 0.4);
+}
+
+/* Formulários modernos */
+form {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px var(--shadow);
+}
+
+form input, form textarea, form select {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(193, 120, 84, 0.1);
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 form button {
-  background: #a0522d;
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
   border: none;
+  padding: 15px;
+  border-radius: 12px;
   cursor: pointer;
-  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-footer {
-  background: #a0522d;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 20px;
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(193, 120, 84, 0.4);
 }
-/* Galeria do Portfólio */
+
+/* Galeria do portfólio */
 .galeria {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
 }
 
 .galeria img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 300px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow);
 }
 
 .galeria img:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(193, 120, 84, 0.3);
 }
 
-/* Modal de fotos */
+/* Modal melhorado */
 .modal {
   display: none;
   position: fixed;
   z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.modal.active {
+  display: flex;
 }
 
 .modal img {
   max-width: 90%;
   max-height: 90%;
-  border-radius: 10px;
+  border-radius: 15px;
+  animation: zoomIn 0.3s ease;
 }
 
-/* Botões */
-.card button, form button {
-  background: #a0522d;
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Seção de contato moderna */
+#contato {
+  background: var(--secondary);
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.contato-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 40px auto 0;
+}
+
+.contato-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 15px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.contato-item:hover {
+  transform: translateX(5px);
+}
+
+.contato-icon {
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+.contato-item a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contato-item a:hover {
+  text-decoration: underline;
+}
+
+/* Footer moderno */
+footer {
+  background: var(--primary-dark);
   color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 60px;
 }
 
-.card button:hover, form button:hover {
-  background: #8b4513;
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  form {
+    padding: 25px;
+  }
 }
