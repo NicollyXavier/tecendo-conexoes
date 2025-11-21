@@ -7,9 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Cabeçalho -->
   <header>
-    <h1>Tecendo Conexões - Franci Arte e Costura</h1>
+    <h1>✂️ Tecendo Conexões - Franci Arte e Costura</h1>
     <nav>
       <a href="#servicos">Serviços</a>
       <a href="#orcamento">Orçamento</a>
@@ -19,89 +18,114 @@
     </nav>
   </header>
 
-  <!-- Serviços -->
+  <div class="hero">
+    <h2>Arte em Cada Ponto</h2>
+    <p>Transformamos suas ideias em peças únicas. Costura profissional, atendimento personalizado e muito carinho em cada detalhe.</p>
+  </div>
+
   <section id="servicos">
-    <h2>Serviços</h2>
+    <h2>Nossos Serviços</h2>
     <div class="servicos">
       <div class="card">
-        <img src="imagens\ajustes-de-roupas.png" alt="Ajustes de roupas">
+        <div class="card-icon">📏</div>
         <h3>Ajustes de Roupas</h3>
-        <p>Barras, mangas, zíperes e pequenos reparos.</p>
-        <button onclick="document.getElementById('orcamento').scrollIntoView()">Peça já</button>
+        <p>Barras, mangas, zíperes e pequenos reparos com precisão e cuidado.</p>
+        <button onclick="scrollToSection('orcamento')">Peça já</button>
       </div>
       <div class="card">
-        <img src="imagens\peças-sob-medida.png" alt="Peças sob medida">
+        <div class="card-icon">✨</div>
         <h3>Peças Sob Medida</h3>
-        <p>Roupas personalizadas feitas especialmente para você.</p>
-        <button onclick="document.getElementById('orcamento').scrollIntoView()">Peça já</button>
+        <p>Roupas personalizadas feitas especialmente para você, do seu jeito.</p>
+        <button onclick="scrollToSection('orcamento')">Peça já</button>
       </div>
       <div class="card">
-        <img src="imagens\consertos-rapidos.png" alt="Consertos rápidos">
+        <div class="card-icon">⚡</div>
         <h3>Consertos Rápidos</h3>
-        <p>Atendimento prático e ágil para emergências.</p>
-        <button onclick="document.getElementById('orcamento').scrollIntoView()">Peça já</button>
+        <p>Atendimento prático e ágil para suas emergências de costura.</p>
+        <button onclick="scrollToSection('orcamento')">Peça já</button>
       </div>
     </div>
   </section>
 
-  <!-- Orçamento -->
   <section id="orcamento">
     <h2>Peça seu Orçamento</h2>
-    <form>
-      <input type="text" placeholder="Seu nome" required>
-      <input type="email" placeholder="Seu e-mail" required>
-      <input type="tel" placeholder="Seu telefone" required>
-      <select required>
+    <form id="form-orcamento">
+      <input type="text" id="nome" placeholder="Seu nome completo" required>
+      <input type="email" id="email" placeholder="Seu e-mail" required>
+      <input type="tel" id="telefone" placeholder="Seu telefone" required>
+      <select id="servico" required>
         <option value="">Selecione o tipo de serviço</option>
         <option value="ajuste">Ajuste de Roupa</option>
         <option value="sobmedida">Peça Sob Medida</option>
         <option value="conserto">Conserto Rápido</option>
       </select>
-      <textarea placeholder="Descreva o serviço desejado"></textarea>
-      <input type="file" accept="image/*">
+      <textarea id="mensagem" placeholder="Descreva o serviço desejado em detalhes"></textarea>
+      <input type="file" accept="image/*" id="foto">
       <button type="submit">Enviar Pedido</button>
     </form>
   </section>
 
-  <!-- Agenda -->
   <section id="agenda">
     <h2>Agende sua Entrega ou Retirada</h2>
-    <form>
-      <input type="text" placeholder="Nome" required>
-      <input type="date" required>
-      <input type="time" required>
-      <button type="submit">Agendar</button>
+    <form id="form-agenda">
+      <input type="text" id="nome-agenda" placeholder="Seu nome" required>
+      <input type="date" id="data" required>
+      <input type="time" id="hora" required>
+      <button type="submit">Confirmar Agendamento</button>
     </form>
   </section>
 
-  <!-- Portfólio -->
   <section id="portfolio">
-    <h2>Portfólio</h2>
+    <h2>Nosso Portfólio</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 30px;">
+      Confira alguns dos nossos trabalhos realizados com dedicação
+    </p>
     <div class="galeria">
-      <img src="imagens\port1.png" alt="Trabalho 1" onclick="abrirModal(this)">
-      <img src="imagens\port2.png" alt="Trabalho 2" onclick="abrirModal(this)">
-      <img src="imagens\port3.png" alt="Trabalho 3" onclick="abrirModal(this)">
-      <img src="imagens\port4.png" alt="Trabalho 4" onclick="abrirModal(this)">
-      <img src="imagens\port5.png" alt="Trabalho 5" onclick="abrirModal(this)">
+      <img src="imagens/port1.png" alt="Trabalho 1" onclick="abrirModal(this)">
+      <img src="imagens/port2.png" alt="Trabalho 2" onclick="abrirModal(this)">
+      <img src="imagens/port3.png" alt="Trabalho 3" onclick="abrirModal(this)">
+      <img src="imagens/port4.png" alt="Trabalho 4" onclick="abrirModal(this)">
+      <img src="imagens/port5.png" alt="Trabalho 5" onclick="abrirModal(this)">
+      <img src="imagens/port6.png" alt="Trabalho 6" onclick="abrirModal(this)">
     </div>
   </section>
 
-  <!-- Modal para ampliar fotos -->
-  <div id="modal" class="modal" onclick="this.style.display='none'">
-    <img id="modal-img">
+  <div id="modal" class="modal" onclick="this.classList.remove('active')">
+    <img id="modal-img" alt="Imagem ampliada">
   </div>
 
-  <!-- Contato -->
   <section id="contato">
-    <h2>Contato</h2>
-    <p>📞 Telefone: (81) 98581-6087</p>
-    <p>📱 WhatsApp: <a href="https://wa.me/5581985816087" target="_blank">Clique aqui para conversar</a></p>
-    <p>📍 Endereço: R. Adolfo Célso, 56, 50100-300 - Santo Amaro, Recife - PE</p>
+    <h2>Entre em Contato</h2>
+    <p style="margin-bottom: 30px;">Estamos prontos para atender você!</p>
+    <div class="contato-info">
+      <div class="contato-item">
+        <span class="contato-icon">📞</span>
+        <div>
+          <strong>Telefone:</strong><br>
+          (81) 98581-6087
+        </div>
+      </div>
+      <div class="contato-item">
+        <span class="contato-icon">💬</span>
+        <div>
+          <strong>WhatsApp:</strong><br>
+          <a href="https://wa.me/5581985816087" target="_blank">Clique aqui para conversar</a>
+        </div>
+      </div>
+      <div class="contato-item">
+        <span class="contato-icon">📍</span>
+        <div>
+          <strong>Endereço:</strong><br>
+          R. Adolfo Célso, 56, 50100-300<br>
+          Santo Amaro, Recife - PE
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Rodapé -->
   <footer>
     <p>© 2025 Franci Arte e Costura - Todos os direitos reservados</p>
+    <p style="margin-top: 10px; font-size: 0.9rem;">Feito com ❤️ em Recife</p>
   </footer>
 
   <script src="script.js"></script>
