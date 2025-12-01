@@ -56,7 +56,7 @@ Acesso rápido ao contato da costureira em qualquer página.
 
 ## 🖥️ Estrutura de Pastas
 
-/
+<pre>
 ├── index.html
 ├── style.css
 ├── script.js
@@ -70,7 +70,7 @@ Acesso rápido ao contato da costureira em qualquer página.
 ├── port4.png
 ├── port5.png
 └── whats.png
-/
+</pre>
 ## 🧩 Como Executar o Projeto
 
 1. **Clone o repositório:**
@@ -85,3 +85,4 @@ cd tecendo-conexoes
 3. **Execute o arquivo principal:**
 
 Basta abrir o arquivo index.html no navegador.
+
